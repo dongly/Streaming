@@ -156,7 +156,7 @@ Print &operator <<(Print &obj, const _FIXED &arg)
 
 #if ARDUINO >= 18
 // Specialization for class _DYNAMIC(v,d,s)
-// è¾“å‡ºä¸€ä¸ªå®šä½å°æ•°(10è¿›åˆ¶),ä½†æœ‰é•¿åº¦sé™åˆ¶,è¾“å‡ºå°½é‡å¤šçš„æœ‰æ•ˆä½(èˆåŽ»çš„å°æ•°éƒ¨åˆ†å››èˆäº”å…¥)
+// Êä³öÒ»¸ö¶¨Î»Ð¡Êý(10½øÖÆ),µ«ÓÐ³¤¶ÈsÏÞÖÆ,Êä³ö¾¡Á¿¶àµÄÓÐÐ§Î»(ÉáÈ¥µÄÐ¡Êý²¿·ÖËÄÉáÎåÈë)
 // output v/(10^d)
 // 
 //   Serial << _DYNAMIC(12345, 2,4); // output 123.5
@@ -208,7 +208,7 @@ Print &operator <<(Print &obj, const _DYNAMIC &arg)
 
 #if ARDUINO >= 18
 // Specialization for class _LEADING0(v,d,s)
-// è¾“å‡ºä¸€ä¸ªå®šä½å°æ•°(10è¿›åˆ¶),æ˜¾ç¤ºå‰åº¦é›¶ ,é•¿åº¦s
+// Êä³öÒ»¸ö¶¨Î»Ð¡Êý(10½øÖÆ),ÏÔÊ¾Ç°¶ÈÁã ,³¤¶Ès
 // output v/(10^d)
 //  n=1234
 //   Serial << _DYNAMIC(n, 2,5); // output 012.34
@@ -237,12 +237,12 @@ Print &operator <<(Print &obj, const _LEADING0 &arg)
     s++;
   }
   v=arg.val;
-  if(v<0){ //è´Ÿæ•°
+  if(v<0){ //¸ºÊý
     v=-v;
     s++;
     obj <<"-";
   }
-  if(v<b){s++;b *=10;} //çº¯å°æ•°
+  if(v<b){s++;b *=10;} //´¿Ð¡Êý
   while(s<arg.size){
     if(v<b){
       obj <<"0";
